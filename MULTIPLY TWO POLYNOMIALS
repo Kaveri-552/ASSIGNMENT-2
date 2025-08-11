@@ -1,0 +1,21 @@
+def multiply_polynomials(poly1, poly2):
+    result = [0] * (len(poly1) + len(poly2) - 1)
+    
+    
+    for i in range(len(poly1)):
+        for j in range(len(poly2)):
+            result[i + j] += poly1[i] * poly2[j]
+    
+    return result
+
+
+poly1 = [6, 5, 3]
+
+poly2 = [8, 0, 2, 4]
+
+result = multiply_polynomials(poly1, poly2)
+
+
+for power, coeff in enumerate(result):
+    if coeff != 0:
+        print(f"{coeff}x^{power}", end=" + ")
