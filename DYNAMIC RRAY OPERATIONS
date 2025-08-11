@@ -1,0 +1,57 @@
+arr = []  # Empty dynamic array
+
+while True:
+    print("\n------ Dynamic Array Menu ------")
+    print("1. Insert Element")
+    print("2. Delete Element")
+    print("3. Search Element")
+    print("4. Update Element")
+    print("5. Display Array")
+    print("6. Exit")
+    
+    choice = int(input("Enter your choice: "))
+    
+    if choice == 1:
+        val = int(input("Enter value to insert: "))
+        arr.append(val)
+        print(f"{val} inserted successfully.")
+    
+    elif choice == 2:
+        if not arr:
+            print("Array is empty! Nothing to delete.")
+        else:
+            val = int(input("Enter value to delete: "))
+            if val in arr:
+                arr.remove(val)
+                print(f"{val} deleted successfully.")
+            else:
+                print(f"{val} not found in array.")
+    
+    elif choice == 3:
+        val = int(input("Enter value to search: "))
+        if val in arr:
+            print(f"{val} found at index {arr.index(val)}.")
+        else:
+            print(f"{val} not found.")
+    
+    elif choice == 4:
+        if not arr:
+            print("Array is empty! Nothing to update.")
+        else:
+            idx = int(input("Enter index to update: "))
+            if 0 <= idx < len(arr):
+                new_val = int(input("Enter new value: "))
+                arr[idx] = new_val
+                print("Value updated successfully.")
+            else:
+                print("Invalid index.")
+    
+    elif choice == 5:
+        print("Current Array:", arr)
+    
+    elif choice == 6:
+        print("Exiting program.")
+        break
+    
+    else:
+        print("Invalid choice! Try again.")
