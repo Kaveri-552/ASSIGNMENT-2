@@ -1,0 +1,27 @@
+def is_identity_matrix(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    
+    if rows != cols:
+        return False
+
+    for i in range(rows):
+        for j in range(cols):
+            if i == j and matrix[i][j] != 1:  # Diagonal should be 1
+                return False
+            elif i != j and matrix[i][j] != 0:  # Non-diagonal should be 0
+                return False
+    return True
+
+
+mat = [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+]
+
+if is_identity_matrix(mat):
+    print("The matrix is an identity matrix.")
+else:
+    print("The matrix is NOT an identity matrix.")
