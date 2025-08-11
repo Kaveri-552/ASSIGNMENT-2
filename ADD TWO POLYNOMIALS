@@ -1,0 +1,18 @@
+def add_polynomials_dict(poly1, poly2):
+    result = poly1.copy()
+    for power, coeff in poly2.items():
+        result[power] = result.get(power, 0) + coeff
+    return result
+
+
+poly1 = {2: 3, 1: 5, 0: 6}
+
+poly2 = {3: 4, 2: 2, 0: 8}
+
+result = add_polynomials_dict(poly1, poly2)
+
+
+for power in sorted(result.keys(), reverse=True):
+    coeff = result[power]
+    if coeff != 0:
+        print(f"{coeff}x^{power}", end=" + ")
